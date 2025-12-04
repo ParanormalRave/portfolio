@@ -1,3 +1,4 @@
+const gotop = document.querySelector('#top');
 const togglemode = document.querySelector('.togglemode');
 const body = document.body;
 const links = document.querySelectorAll('.link');
@@ -6,19 +7,31 @@ const sun = document.querySelector('#sun');
 const moon = document.querySelector('#moon');
 const logoname = document.querySelector('.logoname');
 const view = document.querySelector('.view');
-
+const navcontents = document.querySelector('.navsmallcontents');
+const navsmall = document.querySelector('.nav-small');
 
 togglemode.addEventListener('click', ()=>{
     body.classList.toggle('darkmode');
     links.forEach(link =>{
-        link.style.color === 'white'? link.style.color = '#0d1b2aef': link.style.color = 'white';
+        link.classList.toggle('lighttext')
     })
     iconcontaner.classList.toggle('sun');
     moon.classList.toggle('display');
     togglemode.classList.toggle('togglemodedark')
-    sun.style.display === 'none'? sun.style.display = 'block': sun.style.display = 'none';
-    sun.style.display === 'hidden'? sun.style.visibility = 'visible': sun.style.visibility = 'hidden';
+    sun.classList.toggle('sun');
 })
+
+navsmall.addEventListener('click', ()=>{
+    navcontents.classList.toggle('show')
+})
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 100){
+        gotop.classList.add('showtop');
+    }else{
+        gotop.classList.remove('showtop');
+    }
+});
 
 logoname.addEventListener('click', ()=>{
     location.reload();

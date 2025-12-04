@@ -10,6 +10,8 @@
     box-sizing: border-box;
     overflow: none;
     user-select: none;
+    margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
 }
 
@@ -26,11 +28,6 @@ body{
     justify-content: center;
 }
 
-
-body::-webkit-scrollbar-thumb{
-    background-color: red;
-}
-
 /*the below are the added classlist*/
 .darkmode{
     background-color: var(--darkmode);
@@ -38,14 +35,15 @@ body::-webkit-scrollbar-thumb{
     transition: 0.5s ease;
 }
 
-.lighttext{
+.link.lighttext{
     color: white;
 }
 
-.top{
+#top{
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    padding: 0.2rem;
+    height: 40px;
+    width: 40px;
     position: fixed;
     bottom: 10%;
     right: 5%;
@@ -53,6 +51,16 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    padding: 1rem;
+    opacity: 0;
+    background: rgba(128, 128, 128, 0.199);
+    backdrop-filter: none;
+}
+
+#top.showtop{
+    opacity: 1;
 }
 
 h2{
@@ -73,7 +81,7 @@ header{
     backdrop-filter: blur(50px);
     user-select: none;
     z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.192);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.295);
 }
 
 .logo{
@@ -121,6 +129,7 @@ nav{
     color: var(--red);
 }
 
+
 .dividernav{
     align-self: center;
     height: 1.5rem;
@@ -159,6 +168,11 @@ nav{
     animation: rollback 0.5s ease;
 }
 
+@keyframes rollback {
+    0%{left: 0%;}
+    100%{right: 100%;}
+}
+
 .iconcontainer:hover{
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.774);
 }
@@ -181,25 +195,30 @@ nav{
     visibility: hidden;
 }
 
-.sun{
+#sun.sun{
+    visibility: visible;
     background-color: black;
     border: 1px solid var(--red);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 45%;
-    display: block;
     animation: roll 0.5s ease;
     position: relative;
     height: 4.1vh;
-    left: 60%;
+    left: 100%;
     padding: 0;
 }
 
 @keyframes roll {
     0%{left: 0; right: 100%; height: 3.5vh;}
-    100%{right: 0; left: 60%;}
+    100%{right: 0; left: 100%; height: 3.5vh;}
 }
+
+.navsmallcontainer{
+    display: none;
+}
+
 
 .block{
     display: block;
@@ -231,6 +250,9 @@ nav{
 
 .aboutmecontent{
     max-width: 55dvw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .horizontaldivider{
@@ -264,7 +286,9 @@ nav{
 }
 
 .project{
-    height: 50vh;
+    min-height: 40vh;
+    display: flex;
+    height: fit-content;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.192);
     border-radius: 20px;
     width: 30vw;
@@ -372,6 +396,7 @@ nav{
 }
 
 .formdiv{
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -382,6 +407,7 @@ nav{
 }
 
 form{
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -431,6 +457,10 @@ input::placeholder{
     font-size: 1rem;
 }
 
+textarea{
+    padding: 0.5rem;
+}
+
 footer{
     display: flex;
     flex-direction: column;
@@ -460,6 +490,7 @@ small{
 @media (max-width: 590px) {
     body{
         font-size: 0.7rem;
+        overflow-x: hidden;
     }
 
     .about{
@@ -467,9 +498,10 @@ small{
     }
 
     header{
-        justify-content: space-between;
         padding: 1rem 0rem;
         height: 10dvh;
+        justify-content: space-around;
+        gap: 2rem;
     }
 
     h2{
@@ -485,35 +517,64 @@ small{
         align-content: flex-start;
         padding: 0;
     }
-
-    header{
-        justify-content: space-around;
-        gap: 2rem;
-    }
     
     nav{
         display: none;
     }
 
     .nav-small{
-        font-size: 2rem;
+        font-size: 1rem;
         gap: 0;
         display: flex;
         flex-direction: column;
-        padding: 3rem 3rem;
+        padding: 0.2rem 0.2rem;
         border-radius: 5px;
-        background: gray;
+        background: grey;
         backdrop-filter: blur(50px);
+        margin: 0;
+        width: fit-content;
     }
 
-    .nav-small{
-        padding: 0;
-        margin: 0;
+    .navsmallcontainer{
+        position: relative;
+        display: block;
     }
+
+
+    .navsmallcontents{
+        display: none;
+    }
+
+    .navsmallcontents.show{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--lightmode);
+        padding: 0.5rem;
+        border-radius: 5px;
+        background-color: var(--darkmode);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.192);
+        animation: drop 0.3s ease;
+        gap: 0.5rem;
+    }
+
+    @keyframes drop {
+        0%{height: 0;}
+        100%{height: fit-content;}
+    }
+
 
     .about{
-        padding: 5rem 1rem ;
-        height: 70vh;
+        padding: 3rem;
+        height: fit-content;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .aboutmecontent{
+        display: flex;
     }
 
     .logoimg{
@@ -561,7 +622,8 @@ small{
     .skillscontainer{
         justify-content: center;
         width: 100vw;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
         align-items: center;
         padding: 1rem;  
@@ -579,7 +641,7 @@ small{
     .formdiv{
         width: 100vw;
         padding: 1rem;
-        height: 100vh;
+        height: fit-content;
         background-image: none;
         backdrop-filter: blur(100px);
     }

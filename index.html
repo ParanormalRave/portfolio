@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css"
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=send" />
     <script src="https://kit.fontawesome.com/bd40e7d740.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +12,7 @@
     <title>Parnormal Rave</title>
 </head>
 <body>
-    <div class="top"><a href="#" title="top">
+    <div id="top"><a href="#" title="top">
         <i class="fa-solid fa-chevron-up"></i>
     </a></div>
     <header>
@@ -32,9 +31,18 @@
                 </div>          
             </div>
         </nav>
-        <div class="nav-small">
-            <i class="fa-solid fa-bars"></i>
+        <div class="navsmallcontainer">
+            <div class="nav-small">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="navsmallcontents">
+                <div><a href="#home" class="link">Home</a></div>
+                <div><a href="#projects" class="link">Projects</a></div>
+                <div><a href="#skills" class="link">Skills</a></div>
+                <div><a href="#experience" class="link">Experience</a></div>
+            </div>
         </div>
+        
     </header>
     <div class="about" id="home">
             <div class="aboutmecontent">
@@ -83,7 +91,7 @@
             <div class="project"> 
                 <h3>Mini / Basic Bank App</h3>
                 <div class="projectdetails">A simple digital banking system that allows users to create accounts, deposit funds, withdraw money, and check their balance in real time.</div>
-                <div class="technologies">
+                <div class="technoloies">
                     <button class="projectbutton">HTML</button>
                     <button class="projectbutton">CSS</button>
                     <button class="projectbutton"> Vanilla Javascript</button>
@@ -131,7 +139,6 @@
                 <span class="material-symbols-outlined">send</span>
             </button>
             </form>
-           
         </div>
         
     </div>
@@ -147,5 +154,7 @@
         <p>ParanormalRave</p>
         <small>copyright 2025</small>
     </footer>
+
+     <script defer src="./script.js"></script>
 </body>
 </html>
