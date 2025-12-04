@@ -11,7 +11,7 @@ const view = document.querySelector('.view');
 togglemode.addEventListener('click', ()=>{
     body.classList.toggle('darkmode');
     links.forEach(link =>{
-        link.classList.toggle('lighttext');
+        link.style.color === 'white'? link.style.color = '#0d1b2aef': link.style.color = 'white';
     })
     iconcontaner.classList.toggle('sun');
     moon.classList.toggle('display');
