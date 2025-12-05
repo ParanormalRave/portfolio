@@ -9,6 +9,8 @@ const logoname = document.querySelector('.logoname');
 const view = document.querySelector('.view');
 const navcontents = document.querySelector('.navsmallcontents');
 const navsmall = document.querySelector('.nav-small');
+const exit = document.querySelector('.fa-xmark');
+const bars = document.querySelector('.fa-bars')
 
 togglemode.addEventListener('click', ()=>{
     body.classList.toggle('darkmode');
@@ -16,14 +18,18 @@ togglemode.addEventListener('click', ()=>{
         link.classList.toggle('lighttext')
     })
     iconcontaner.classList.toggle('sun');
-    moon.classList.toggle('display');
+    moon.classList.toggle('diplay');
     togglemode.classList.toggle('togglemodedark')
     sun.classList.toggle('sun');
 })
 
 navsmall.addEventListener('click', ()=>{
-    navcontents.classList.toggle('show')
+    navcontents.classList.toggle('show');  
+    exit.classList.toggle('showdisplay'); 
+    bars.classList.toggle('display')
+
 })
+
 
 window.addEventListener("scroll", () => {
     if(window.scrollY > 100){
