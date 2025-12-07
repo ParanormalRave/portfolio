@@ -17,8 +17,8 @@ togglemode.addEventListener('click', ()=>{
     links.forEach(link =>{
         link.classList.toggle('lighttext')
     })
-    iconcontaner.classList.toggle('sun');
-    moon.classList.toggle('diplay');
+    iconcontaner.classList.toggle('black');
+    moon.classList.toggle('display');
     togglemode.classList.toggle('togglemodedark')
     sun.classList.toggle('sun');
 })
