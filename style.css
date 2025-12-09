@@ -405,7 +405,7 @@ nav{
     padding: 5rem;
     flex-direction: column;
     justify-content: space-around;
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 .skillscontainer{
@@ -414,13 +414,14 @@ nav{
     justify-content: space-evenly;
 }
 
+
 .skillicon{
     font-size: 7rem;
     transition: 0.5s ease;
     cursor: pointer;
-    border: 1px solid;
     padding: 1rem;
     border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.192);
 }
 
 .skillicon .skillscontainer {
