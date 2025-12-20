@@ -10,7 +10,16 @@ const view = document.querySelector('.view');
 const navcontents = document.querySelector('.navsmallcontents');
 const navsmall = document.querySelector('.nav-small');
 const exit = document.querySelector('.fa-xmark');
-const bars = document.querySelector('.fa-bars')
+const bars = document.querySelector('.fa-bars');
+const image = document.querySelector(".image");
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    image.classList.add("slidin");
+    document.querySelectorAll('.aboutdet').forEach((about, t)=>{
+        setTimeout(() => about.classList.add('animation') ,t*150);
+    })
+});
+
 
 togglemode.addEventListener('click', ()=>{
     body.classList.toggle('darkmode');
