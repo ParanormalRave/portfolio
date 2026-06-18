@@ -31,7 +31,7 @@ body{
 
 /*the below are the added classlist*/
 .darkmode{
-    background-color: var(--darkmode);
+    background-color: red;
     color: var(--lightmode);
     transition: 0.5s ease;
 }
@@ -67,7 +67,7 @@ body{
 
 #top.showtop{
     pointer-events: fill;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 h2{
