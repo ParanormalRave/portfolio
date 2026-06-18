@@ -19,6 +19,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Navigate explicitly: closing the mobile menu collapses the header mid-jump and
+  // cancels the default #hash scroll, so we scroll to the target ourselves.
+  const goTo = (e, href) => {
+    const el = document.querySelector(href)
+    if (!el) return
+    e.preventDefault()
+    setOpen(false)
+    el.scrollIntoView({ behavior: 'smooth' })
+    window.history.replaceState(null, '', href)
+  }
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -41,6 +52,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
+                onClick={(e) => goTo(e, l.href)}
                 className="group relative text-sm uppercase tracking-[0.15em] text-muted transition-colors hover:text-cream"
               >
                 {l.label}
@@ -78,7 +90,7 @@ export default function Navbar() {
               <li key={l.href} className="border-b border-cream/5 last:border-0">
                 <a
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => goTo(e, l.href)}
                   className="block px-6 py-4 text-sm uppercase tracking-[0.15em] text-muted hover:text-cream"
                 >
                   {l.label}
