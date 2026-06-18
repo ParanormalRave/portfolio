@@ -124,11 +124,29 @@ nav{
 .link{
     color: var(--darkmode);
     text-decoration-line: none;
-    transition: 0.5s ease;
+    position: relative;
 }
 
 .link:hover{
     color: var(--red);
+}
+
+
+.link:hover .navUnder{
+    background-color: var(--red);
+    width: 3rem;
+    animation: nav 0.7s ease forwards;
+    height: 3px;
+    color: var(--red);
+    position: absolute;
+    bottom: 0;
+    left: 0 ;
+    border-radius: 10px;
+}
+
+@keyframes nav {
+    0%{ width: 0;}
+    100%{ max-width: 5rem; width: 3rem;}
 }
 
 .link:target{

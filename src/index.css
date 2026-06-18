@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* ---- Design tokens: cinematic dark-navy + warm glow (from the HYBRI reference) ---- */
+@theme {
+  --color-ink: #060912;
+  --color-ink-2: #0a0f1f;
+  --color-panel: #0d1b2a;
+  --color-panel-2: #111a2e;
+  --color-cream: #ece7df;
+  --color-muted: #8b94a7;
+  --color-glow: #f2c9a4;
+  --color-glow-2: #e9a06f;
+  --color-ember: #e1503f;
+  --color-crimson: #dc2f4b;
+
+  --font-display: "Cinzel", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Uniform deep-space base — no contrasting glow patches, just one even tone */
+.bg-cinematic {
+  background-color: #070b15;
+}
+
+/* ---- Infinite looped starfield ---- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.starfield span {
+  position: absolute;
+  inset: -100% 0 0 0;
+  height: 200%;
+  width: 100%;
+  display: block;
+  background-repeat: repeat;
+}
+
+/* small dense stars */
+.starfield .stars-1 {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 120px, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 160px 70px, rgba(242, 201, 164, 0.7), transparent),
+    radial-gradient(1px 1px at 130px 180px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.6), transparent);
+  background-size: 200px 200px;
+  animation: star-drift 90s linear infinite;
+}
+
+/* medium stars, slower */
+.starfield .stars-2 {
+  background-image:
+    radial-gradient(1.6px 1.6px at 60px 50px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.6px 1.6px at 200px 150px, rgba(233, 160, 111, 0.6), transparent),
+    radial-gradient(1.6px 1.6px at 300px 90px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.6px 1.6px at 250px 280px, rgba(255, 255, 255, 0.6), transparent);
+  background-size: 350px 350px;
+  animation: star-drift 160s linear infinite;
+  opacity: 0.8;
+}
+
+/* sparse large twinkling stars */
+.starfield .stars-3 {
+  background-image:
+    radial-gradient(2.4px 2.4px at 120px 90px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2.4px 2.4px at 480px 320px, rgba(242, 201, 164, 0.8), transparent),
+    radial-gradient(2.4px 2.4px at 360px 480px, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 600px 600px;
+  animation: star-drift 240s linear infinite, twinkle 6s ease-in-out infinite;
+}
+
+@keyframes star-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield span { animation: none !important; }
+}
+
+/* ---- Portrait feather-blend: melts the photo into the page (no frame, no box) ---- */
+.portrait-blend {
+  -webkit-mask-image: radial-gradient(ellipse 58% 66% at 50% 41%, #000 30%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.12) 68%, transparent 80%);
+  mask-image: radial-gradient(ellipse 58% 66% at 50% 41%, #000 30%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.12) 68%, transparent 80%);
+  filter: contrast(1.04) saturate(1.05);
+}
+
+/* Glass panels like the reference's mission/vision cards */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(236, 231, 223, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.glass-hover {
+  transition: border-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+}
+.glass-hover:hover {
+  border-color: rgba(242, 201, 164, 0.18);
+  box-shadow: 0 14px 44px -26px rgba(242, 201, 164, 0.18);
+}
+
+/* The thin horizontal beam that echoes the lightsaber in the reference */
+.beam {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242, 201, 164, 0.6), rgba(220, 47, 75, 0.5), transparent);
+  box-shadow: 0 0 18px rgba(242, 201, 164, 0.35);
+}
+
+.text-glow {
+  background: linear-gradient(180deg, #fff 0%, var(--color-glow) 55%, var(--color-glow-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tracking-mega {
+  letter-spacing: 0.12em;
+}
+
+/* ---- Form fields: always dark, never white (incl. browser autofill) ---- */
+.field-dark {
+  background-color: #0c1426;
+  color: var(--color-cream);
+}
+.field-dark::placeholder {
+  color: rgba(139, 148, 167, 0.55);
+}
+.field-dark:-webkit-autofill,
+.field-dark:-webkit-autofill:hover,
+.field-dark:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-cream);
+  -webkit-box-shadow: 0 0 0 1000px #0c1426 inset;
+  caret-color: var(--color-cream);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #060912;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-glow-2), var(--color-crimson));
+  border-radius: 10px;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes beam-sweep {
+  0% { transform: scaleX(0); opacity: 0; }
+  60% { opacity: 1; }
+  100% { transform: scaleX(1); opacity: 1; }
+}

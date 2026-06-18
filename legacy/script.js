@@ -39,7 +39,6 @@ navsmall.addEventListener('click', ()=>{
     navcontents.classList.toggle('show');  
     exit.classList.toggle('showdisplay'); 
     bars.classList.toggle('display')
-
 })
 
 
