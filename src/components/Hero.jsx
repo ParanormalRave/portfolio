@@ -114,14 +114,15 @@ export default function Hero() {
         >
           <div className="relative">
             {/*
-              PROFILE PHOTO: /public/displaypic.jpg — the original image, unmodified.
-              Swap the file to change the photo.
+              PROFILE PHOTO: /public/displaypic.jpg — the original image (uncropped).
+              .portrait-blend feathers the edges so the background fades out and melts
+              into the page. Swap the file to change the photo.
             */}
             <img
               src="/displaypic.jpg"
               alt="Adenubi Mercy Abiola"
               loading="eager"
-              className="mx-auto w-full max-w-[22rem] rounded-2xl object-contain"
+              className="portrait-blend mx-auto w-full max-w-[22rem] object-contain"
             />
           </div>
         </motion.div>
