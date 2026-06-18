@@ -32,7 +32,7 @@ export default function BackToTop() {
           transition={{ type: 'spring', stiffness: 480, damping: 20, mass: 0.7 }}
           whileHover={{ y: -4, opacity: 1 }}
           whileTap={{ scale: 0.88 }}
-          className="group fixed bottom-6 right-6 z-50 grid h-9 w-9 place-items-center rounded-full border border-glow/25 bg-glow/15 text-glow opacity-60 backdrop-blur-sm transition-opacity duration-300 sm:bottom-8 sm:right-8 sm:h-11 sm:w-11"
+          className="group fixed bottom-6 right-6 z-50 grid h-9 w-9 place-items-center rounded-full border border-glow/30 bg-glow/15 text-cream opacity-75 backdrop-blur-sm transition-opacity duration-300 hover:opacity-100 sm:bottom-8 sm:right-8 sm:h-11 sm:w-11"
         >
           {/* thin animated ring that breathes */}
           <motion.span
@@ -40,7 +40,7 @@ export default function BackToTop() {
             animate={{ scale: [1, 1.16, 1], opacity: [0.4, 0, 0.4] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <FiArrowUp className="text-base transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-lg" />
+          <FiArrowUp className="text-lg transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-xl" strokeWidth={2.5} />
         </motion.button>
       )}
     </AnimatePresence>

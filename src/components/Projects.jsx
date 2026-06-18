@@ -65,8 +65,8 @@ function ProjectCard({ p, index }) {
       transition={{ duration: 0.7, delay: (index % 3) * 0.12, ease }}
       className={`group ${p.featured ? 'lg:col-span-3' : 'lg:col-span-2'}`}
     >
-      {/* The picture */}
-      <div className="relative aspect-[16/11] overflow-hidden rounded-2xl glass glass-hover">
+      {/* The picture — square bottom on small screens so the details block joins it */}
+      <div className="relative aspect-[16/11] overflow-hidden rounded-t-2xl glass glass-hover sm:rounded-2xl">
         {!loaded && <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-panel to-ink" />}
         <img
           src={p.image}
@@ -89,8 +89,8 @@ function ProjectCard({ p, index }) {
         </div>
       </div>
 
-      {/* Details block underneath — small screens only, no hover / cursor needed */}
-      <div className="mt-4 rounded-2xl glass p-6 sm:hidden">
+      {/* Details block — attached directly under the picture on small screens (no gap) */}
+      <div className="rounded-b-2xl border-t border-cream/5 glass p-6 sm:hidden">
         <Details p={p} />
       </div>
     </motion.article>

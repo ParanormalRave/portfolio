@@ -5,7 +5,11 @@ import { FiArrowDownRight, FiLayers, FiSend, FiMapPin } from 'react-icons/fi'
 const socials = [
   { icon: FaXTwitter, href: 'https://x.com/MercyAdenu26099', label: 'X' },
   { icon: FaGithub, href: 'https://github.com/ParanormalRave', label: 'GitHub' },
-  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/mercy-adenubi-606619325', label: 'LinkedIn' },
+  {
+    icon: FaLinkedin,
+    href: 'https://www.linkedin.com/in/mercy-adenubi-606619325',
+    label: 'LinkedIn',
+  },
   { icon: FaWhatsapp, href: 'https://wa.me/2348163251422', label: 'WhatsApp' },
 ]
 
@@ -51,9 +55,9 @@ export default function Hero() {
             className="mt-7 max-w-xl border-l border-glow/40 pl-5"
           >
             <p className="font-serif text-lg leading-relaxed text-muted sm:text-xl">
-              Cloud &amp; DevOps engineer and frontend developer — I build resilient
-              infrastructure on AWS, ship it with automated pipelines, and craft clean,
-              interactive interfaces. Currently exploring Web3 on Solana.
+              Cloud &amp; DevOps engineer and frontend developer — I build resilient infrastructure
+              on AWS, ship it with automated pipelines, and craft clean, interactive interfaces.
+              Currently exploring Web3 on Solana.
             </p>
           </motion.div>
 
@@ -104,12 +108,12 @@ export default function Hero() {
         {/* Right — portrait, background removed, blended into the page (no frame / no box) */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 1}}
           transition={{ duration: 1, delay: 0.4, ease }}
           className="relative mx-auto w-full max-w-sm"
         >
           {/* soft warm glow so she emerges from the dark — kept very subtle */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[55%] w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.04),transparent_55%)] blur-sm" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.16),transparent_60%)] blur-2xl" />
 
           <div className="relative">
             {/*
@@ -158,8 +162,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: i * 0.15, ease }}
             className="relative flex items-start gap-6 pb-10 last:pb-0"
           >
-            {/* node sitting on the connector */}
-            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-glow/40 bg-ink text-glow shadow-[0_0_22px_-6px] shadow-glow/60 sm:h-14 sm:w-14">
+            {/* node sitting on the connector — filled badge with the icon */}
+            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-glow to-glow-2 text-ink shadow-[0_0_22px_-6px] shadow-glow/60 sm:h-14 sm:w-14">
               <c.Icon className="text-lg sm:text-xl" />
             </div>
             {/* horizontal link from node into the card */}
@@ -168,6 +172,7 @@ export default function Hero() {
               <p className="text-xs uppercase tracking-[0.25em] text-glow">{c.k}</p>
               <p className="mt-2 font-serif text-base leading-relaxed text-muted sm:text-lg">{c.v}</p>
             </div>
+
           </motion.div>
         ))}
       </div>
