@@ -1,5 +1,5 @@
 import { FaXTwitter, FaGithub, FaWhatsapp, FaLinkedin, FaDiscord } from 'react-icons/fa6'
-import { FiMail, FiArrowUp } from 'react-icons/fi'
+import { FiMail } from 'react-icons/fi'
 
 const socials = [
   { icon: FaXTwitter, href: 'https://x.com/MercyAdenu26099', label: 'X' },
@@ -37,11 +37,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex w-full flex-col items-center gap-2 border-t border-cream/5 pt-6 text-center text-xs text-muted sm:flex-row sm:justify-between">
+        <div className="flex w-full flex-col items-center gap-2 border-t border-cream/5 pt-6 text-center text-xs text-muted">
           <p>© {new Date().getFullYear()} Adenubi Mercy Abiola — ParanormalRave</p>
-          <a href="#home" className="inline-flex items-center gap-1.5 hover:text-glow">
-            Back to top <FiArrowUp />
-          </a>
         </div>
       </div>
     </footer>

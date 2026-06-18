@@ -19,15 +19,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Navigate explicitly: closing the mobile menu collapses the header mid-jump and
-  // cancels the default #hash scroll, so we scroll to the target ourselves.
+  // Navigate explicitly. We close the mobile menu first, then scroll on the next
+  // tick to a manually-offset position (accounting for the fixed header) so the
+  // smooth scroll can't be cancelled by the menu collapsing mid-jump.
   const goTo = (e, href) => {
-    const el = document.querySelector(href)
-    if (!el) return
     e.preventDefault()
     setOpen(false)
-    el.scrollIntoView({ behavior: 'smooth' })
-    window.history.replaceState(null, '', href)
+    const el = document.querySelector(href)
+    if (!el) return
+    const HEADER_OFFSET = 80
+    window.setTimeout(() => {
+      const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
+      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' })
+      window.history.replaceState(null, '', href)
+    }, 60)
   }
 
   return (

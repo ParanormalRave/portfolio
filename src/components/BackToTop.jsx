@@ -30,19 +30,17 @@ export default function BackToTop() {
           animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
           exit={{ opacity: 0, scale: 0.2, y: 28, rotate: 120 }}
           transition={{ type: 'spring', stiffness: 480, damping: 20, mass: 0.7 }}
-          whileHover={{ y: -4 }}
+          whileHover={{ y: -4, opacity: 1 }}
           whileTap={{ scale: 0.88 }}
-          className="group fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-glow to-glow-2 text-ink shadow-[0_10px_30px_-8px] shadow-glow/50 sm:bottom-8 sm:right-8 sm:h-14 sm:w-14"
+          className="group fixed bottom-6 right-6 z-50 grid h-9 w-9 place-items-center rounded-full border border-glow/25 bg-glow/15 text-glow opacity-60 backdrop-blur-sm transition-opacity duration-300 sm:bottom-8 sm:right-8 sm:h-11 sm:w-11"
         >
-          {/* soft pulsing halo */}
-          <span className="absolute inset-0 -z-10 rounded-full bg-glow/40 blur-md" />
           {/* thin animated ring that breathes */}
           <motion.span
-            className="absolute inset-0 rounded-full border border-cream/40"
-            animate={{ scale: [1, 1.18, 1], opacity: [0.6, 0, 0.6] }}
+            className="absolute inset-0 rounded-full border border-glow/25"
+            animate={{ scale: [1, 1.16, 1], opacity: [0.4, 0, 0.4] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <FiArrowUp className="text-xl transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-2xl" />
+          <FiArrowUp className="text-base transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-lg" />
         </motion.button>
       )}
     </AnimatePresence>
