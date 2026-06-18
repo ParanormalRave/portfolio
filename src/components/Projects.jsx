@@ -34,8 +34,8 @@ function ProjectCard({ p, index }) {
         {p.tag}
       </span>
 
-      {/* Dark veil: always on small screens, only on hover from sm+ */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-transparent transition-opacity duration-500 sm:opacity-0 sm:group-hover:opacity-100" />
+      {/* Dark veil: always on small screens, only on hover from sm+ (softened for lower contrast) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/55 to-transparent transition-opacity duration-500 sm:opacity-0 sm:group-hover:opacity-100" />
 
       {/* Details: shown on small screens, revealed on hover from sm+ */}
       <div className="absolute inset-x-0 bottom-0 flex flex-col p-6 transition-all duration-500 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">

@@ -129,8 +129,8 @@ body {
   transition: border-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
 }
 .glass-hover:hover {
-  border-color: rgba(242, 201, 164, 0.18);
-  box-shadow: 0 14px 44px -26px rgba(242, 201, 164, 0.18);
+  border-color: rgba(242, 201, 164, 0.1);
+  box-shadow: 0 12px 36px -28px rgba(242, 201, 164, 0.1);
 }
 
 /* The thin horizontal beam that echoes the lightsaber in the reference */

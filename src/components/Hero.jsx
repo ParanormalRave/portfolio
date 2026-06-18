@@ -101,36 +101,29 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — portrait feather-blended into the page (no frame / no box) */}
+        {/* Right — portrait, background removed, blended into the page (no frame / no box) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease }}
           className="relative mx-auto w-full max-w-sm"
         >
           {/* soft warm glow so she emerges from the dark */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.16),transparent_60%)] blur-2xl" />
 
-          <div className="animate-floaty relative">
+          <div className="relative">
             {/*
-              PROFILE PHOTO: /public/displaypic.jpg
-              Background is feather-masked (.portrait-blend) so it melts into the page.
-              Swap the file to change the photo.
+              PROFILE PHOTO: /public/displaypic.png
+              Background already removed (transparent PNG); .portrait-blend feathers
+              the edges so it melts into the page. Static — no motion. Swap the file
+              to change the photo.
             */}
             <img
-              src="/displaypic.jpg"
+              src="/displaypic.png"
               alt="Adenubi Mercy Abiola"
               loading="eager"
               className="portrait-blend mx-auto w-full max-w-[22rem] object-contain"
             />
-
-            {/* Floating status chip */}
-            <div className="absolute bottom-2 left-0 rounded-xl glass px-4 py-3">
-              <p className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-cream">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-glow" />
-                Open to roles
-              </p>
-            </div>
           </div>
         </motion.div>
       </div>

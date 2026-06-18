@@ -23,7 +23,7 @@ export default function Skills() {
             >
               {/* glow that follows the brand colour on hover */}
               <div
-                className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-[0.16]"
+                className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-[0.1]"
                 style={{ background: s.color }}
               />
               <Icon
