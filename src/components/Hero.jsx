@@ -105,28 +105,23 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — portrait, background removed, blended into the page (no frame / no box) */}
+        {/* Right — original portrait, shown as-is (no blur, no mask) */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1}}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease }}
           className="relative mx-auto w-full max-w-sm"
         >
-          {/* soft warm glow so she emerges from the dark — kept very subtle */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.16),transparent_60%)] blur-2xl" />
-
           <div className="relative">
             {/*
-              PROFILE PHOTO: /public/displaypic.png
-              Background already removed (transparent PNG); .portrait-blend feathers
-              the edges so it melts into the page. Static — no motion. Swap the file
-              to change the photo.
+              PROFILE PHOTO: /public/displaypic.jpg — the original image, unmodified.
+              Swap the file to change the photo.
             */}
             <img
-              src="/displaypic.png"
+              src="/displaypic.jpg"
               alt="Adenubi Mercy Abiola"
               loading="eager"
-              className="portrait-blend mx-auto w-full max-w-[22rem] object-contain"
+              className="mx-auto w-full max-w-[22rem] rounded-2xl object-contain"
             />
           </div>
         </motion.div>
