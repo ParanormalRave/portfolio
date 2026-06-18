@@ -108,8 +108,8 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.4, ease }}
           className="relative mx-auto w-full max-w-sm"
         >
-          {/* soft warm glow so she emerges from the dark */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.16),transparent_60%)] blur-2xl" />
+          {/* soft warm glow so she emerges from the dark — kept subtle */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,201,164,0.08),transparent_55%)] blur-lg" />
 
           <div className="relative">
             {/*
