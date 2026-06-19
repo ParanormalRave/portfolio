@@ -24,6 +24,7 @@
 
 html,
 body {
+  background-color: #04050a;
   max-width: 100%;
   overflow-x: hidden;
 }
