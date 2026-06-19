@@ -83,7 +83,7 @@ function ProjectCard({ p, index }) {
         </span>
 
         {/* Hover overlay — sm+ only. Touch screens use the block underneath instead. */}
-        <div className="absolute inset-0 hidden bg-gradient-to-t from-ink/90 via-ink/55 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:block" />
+        <div className="absolute inset-0 hidden bg-gradient-to-t from-ink via-ink/95 to-ink/65 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:block" />
         <div className="absolute inset-x-0 bottom-0 hidden translate-y-4 flex-col p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:flex">
           <Details p={p} />
         </div>
